@@ -36,11 +36,6 @@ async function handleEvent(event) {
 
   //"豚山行く？"以外の場合は反応しない
   if(event.message.text !== '豚山行く？') {
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-      text: '"豚山行く？"と発言する人に反応します'
-    });
-  }
 
   let replyText = '';
   replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
@@ -48,6 +43,7 @@ async function handleEvent(event) {
       type: 'text',
       text: replyText
   });
+  }
 }
 
 app.listen(PORT);
