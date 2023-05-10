@@ -34,19 +34,23 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  const message = event.message.text;
   //"豚山行く？"以外の場合は反応しない
-  if(event.message.text !== '豚山行く？') {
-    return client.replyMessage(event.replyToken, {
-      type: 'text',
-    });
-  }
+  // if(event.message.text !== '豚山行く？') {
+  //   return client.replyMessage(event.replyToken, {
+  //     type: 'text',
+  //   });
+  // }
 
   let replyText = '';
-  replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
-  await client.replyMessage(event.replyToken, {
+  if (message = '豚山行く？'){
+      replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
+      await client.replyMessage(event.replyToken, {
       type: 'text',
       text: replyText
   });
+  }
+  
 
 }
 
