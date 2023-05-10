@@ -43,7 +43,7 @@ async function handleEvent(event) {
   // }
 
   let replyText = '';
-  if (message === '豚山行く？'){
+  if (message.includes('豚山行く？')){
       replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
       return client.replyMessage(event.replyToken, {
       type: 'text',
