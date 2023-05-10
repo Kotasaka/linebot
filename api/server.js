@@ -50,7 +50,13 @@ async function handleEvent(event) {
       text: replyText
   });
   }
-  
+  else if(message.includes('豚山行かへん？')){
+      replyText = '行ってやってもええで'; //"行きたい！！"ってメッセージを送信
+      return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: replyText
+  });
+  }
 
 }
 
