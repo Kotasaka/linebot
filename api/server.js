@@ -58,7 +58,7 @@ async function handleEvent(event) {
   });
   }
   else if(message.includes('🐖🗻')){
-    replyText = '行ってやってもええで'; //"行きたい！！"ってメッセージを送信
+    replyText = '豚山行きたいです！'; //"行きたい！！"ってメッセージを送信
     return client.replyMessage(event.replyToken, {
     type: 'text',
     text: replyText
