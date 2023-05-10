@@ -45,7 +45,7 @@ async function handleEvent(event) {
   let replyText = '';
   if (message = '豚山行く？'){
       replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
-      await client.replyMessage(event.replyToken, {
+      return client.replyMessage(event.replyToken, {
       type: 'text',
       text: replyText
   });
