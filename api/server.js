@@ -35,7 +35,7 @@ async function handleEvent(event) {
   }
 
   //"豚山行く？"以外の場合は反応しない
-  if(event.message.text.indexOf('豚山行く')) {
+  if(event.message.text.includes('豚山行く')) {
     return client.replyMessage(event.replyToken, {
       type: 'text',
     });
