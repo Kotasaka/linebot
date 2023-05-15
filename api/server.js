@@ -44,7 +44,7 @@ async function handleEvent(event) {
 
   let replyText = '';
   if (message.includes('豚山行く')){
-      replyText = '行きたい！！'; //"行きたい！！"ってメッセージを送信
+      replyText = 'ようこそ！豚山へ！'; //"行きたい！！"ってメッセージを送信
       return client.replyMessage(event.replyToken, {
       type: 'text',
       text: replyText
@@ -58,6 +58,13 @@ async function handleEvent(event) {
   });
   }
   else if(message.includes('🐖🗻')){
+    replyText = '豚山行きたいです！'; //"行きたい！！"ってメッセージを送信
+    return client.replyMessage(event.replyToken, {
+    type: 'text',
+    text: replyText
+  });
+  }
+  else if(message.includes('豚山')){
     replyText = '豚山行きたいです！'; //"行きたい！！"ってメッセージを送信
     return client.replyMessage(event.replyToken, {
     type: 'text',
