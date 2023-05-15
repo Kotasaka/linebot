@@ -67,14 +67,21 @@ async function handleEvent(event) {
   else if(message.includes('豚山')){
     var random = Math.random()
     if(random <0.5){
-      replyText = 'そろそろ豚山行きたくなってきた？'; //"行きたい！！"ってメッセージを送信
+      replyText = 'そろそろ豚山行きたくなってきた？'; //メッセージを送信
       return client.replyMessage(event.replyToken, {
       type: 'text',
       text: replyText
       });
     }
-    else if(random >= 0.5){
-      replyText = '豚山行きたいです！'; //"行きたい！！"ってメッセージを送信
+    else if(random >= 0.5 && random < 0.9){
+      replyText = '豚山行きたいです！'; //メッセージを送信
+      return client.replyMessage(event.replyToken, {
+      type: 'text',
+      text: replyText
+      });
+    }
+    else if(random > 0.9){
+      replyText = '豚山はほどほどにしとき…'; //メッセージを送信
       return client.replyMessage(event.replyToken, {
       type: 'text',
       text: replyText
