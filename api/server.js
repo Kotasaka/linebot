@@ -63,10 +63,12 @@ async function handleEvent(event) {
       ]
     })
   }
-  const response = fetch("https://api.openai.com/v1/chat/completions", requestOptions)
-  const responseText = response.getContentText();
-  const json = JSON.parse(responseText);
-  const text = json['choices'][0]['message']['content'].trim();
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+    .then((res) => {
+      return res.json
+    })
+  const text = response['choices'][0]['message']['content'].trim();
 
   let replyMessage;
   if (text.match(/はい/)) {
