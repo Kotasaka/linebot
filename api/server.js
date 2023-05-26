@@ -66,7 +66,7 @@ async function handleEvent(event) {
 
   const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions)
     .then((res) => {
-      return res.json
+      return res.json()
     })
   const text = response['choices'][0]['message']['content'].trim();
 
