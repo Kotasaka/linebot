@@ -130,7 +130,9 @@ async function gpt(message) {
     })
   }
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions).then((res) => {
+    return res
+  })
   return response.json();
 }
 
