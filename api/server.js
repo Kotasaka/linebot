@@ -3,6 +3,7 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const PORT = process.env.PORT || 3000;
+const request = require("request")
 
 const config = {
     channelSecret: process.env.CHANNEL_SECRET,
@@ -50,8 +51,7 @@ async function handleEvent(event) {
   message = "「" + message + "」と発言している人は、ラーメン屋に行きたいと思っていますか。\n"
               +   "「はい」か「いいえ」で答えてください"
 
-  const response = gpt(message);
-  console.log(response);
+  const response = await gpt(message);
   const text = response['choices'][0]['message']['content'].trim();
 
   let replyMessage;
@@ -130,10 +130,15 @@ async function gpt(message) {
     })
   }
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions).then((res) => {
-    return res
+  // const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions).then((res) => {
+  //   return res
+  // })
+  return new Promise((resolve, reject) => {
+    request.post(requestOptions, (err, req, res) => {
+      resolve(res)
+    })
   })
-  return response.json();
+
 }
 
 app.listen(PORT);
