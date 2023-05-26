@@ -59,7 +59,7 @@ async function handleEvent(event) {
     "payload": JSON.stringify({
       "model": "gpt-3.5-turbo",
       "messages": [
-          {"role": "user", "content": userMessage}
+          {"role": "user", "content": message}
       ]
     })
   }
