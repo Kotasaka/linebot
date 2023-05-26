@@ -36,7 +36,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  const message = event.message.text;
+  let message = event.message.text;
 
   // 豚山が含まれているか
   if (!message.match(/豚山/)) {
