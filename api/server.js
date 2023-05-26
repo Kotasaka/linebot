@@ -3,7 +3,6 @@
 const express = require('express');
 const line = require('@line/bot-sdk');
 const PORT = process.env.PORT || 3000;
-const request = require("request")
 
 const config = {
     channelSecret: process.env.CHANNEL_SECRET,
@@ -134,11 +133,6 @@ async function gpt(message) {
     return res.json();
   })
   return response
-  // return new Promise((resolve, reject) => {
-  //   request.post(requestOptions, (err, req, res) => {
-  //     resolve(res)
-  //   })
-  // })
 
 }
 
