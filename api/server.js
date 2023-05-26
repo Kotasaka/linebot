@@ -130,14 +130,14 @@ async function gpt(message) {
     })
   }
 
-  // const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions).then((res) => {
-  //   return res
-  // })
-  return new Promise((resolve, reject) => {
-    request.post(requestOptions, (err, req, res) => {
-      resolve(res)
-    })
+  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions).then((res) => {
+    return res.json();
   })
+  // return new Promise((resolve, reject) => {
+  //   request.post(requestOptions, (err, req, res) => {
+  //     resolve(res)
+  //   })
+  // })
 
 }
 
