@@ -51,6 +51,7 @@ async function handleEvent(event) {
               +   "「はい」か「いいえ」で答えてください"
 
   const response = gpt(message);
+  console.log(response);
   const text = response['choices'][0]['message']['content'].trim();
 
   let replyMessage;
