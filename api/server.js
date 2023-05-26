@@ -50,24 +50,7 @@ async function handleEvent(event) {
   message = "「" + message + "」と発言している人は、ラーメン屋に行きたいと思っていますか。\n"
               +   "「はい」か「いいえ」で答えてください"
 
-  const requestOptions = {
-    "method": "post",
-    "headers": {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer "+ OPENAPI_KEY
-    },
-    "payload": JSON.stringify({
-      "model": "gpt-3.5-turbo",
-      "messages": [
-          {"role": "user", "content": message}
-      ]
-    })
-  }
-
-  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions)
-    .then((res) => {
-      return res.json()
-    })
+  const response = gpt(message);
   const text = response['choices'][0]['message']['content'].trim();
 
   let replyMessage;
@@ -129,6 +112,25 @@ async function handleEvent(event) {
   //     });
   //   }
   // }
+}
+
+async function gpt(message) {
+  const requestOptions = {
+    "method": "post",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer "+ OPENAPI_KEY
+    },
+    "payload": JSON.stringify({
+      "model": "gpt-3.5-turbo",
+      "messages": [
+          {"role": "user", "content": message}
+      ]
+    })
+  }
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+  return response.json();
 }
 
 app.listen(PORT);
